@@ -1,3 +1,4 @@
+require("dotenv").config(); // To load .env variables
 const { createProductSeed } = require("../controllers/productController");
 const { createVideoSeed } = require("../controllers/videoController");
 const { connectDB, disconnectDB } = require("./database")

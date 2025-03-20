@@ -1,3 +1,4 @@
+require("dotenv").config(); // To load .env variables
 const { connectDB, disconnectDB, dbDrop } = require("./database");
 
 // Fuction to drop entire database and disconnect from the database
