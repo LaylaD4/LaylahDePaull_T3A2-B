@@ -16,6 +16,16 @@ async function connectDB() {
 
 }
 
+// To drop the entire database
+async function dbDrop() {
+    try {
+        await mongoose.connection.db.dropDatabase();
+        console.log("Entire Database dropped!");
+    } catch (error) {
+        console.error("Error when dropping entire database:", error);
+    }
+}
+
 // To disconnect from the database
 async function disconnectDB() {
     try {
@@ -28,5 +38,6 @@ async function disconnectDB() {
 
 module.exports = { 
     connectDB,
+    dbDrop,
     disconnectDB
  }
