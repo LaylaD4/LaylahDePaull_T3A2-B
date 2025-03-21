@@ -13,8 +13,8 @@ router.post("/", createOrder);
 // GET /api/orders - route to get all orders (Added middleware)
 router.get("/", validateToken, adminAuth, getOrders);
 
-// GET /api/order/:orderId - route to get a specific order by it's ID (Added middleware)
-router.get("/orderId", validateToken, adminAuth, getOrderById);
+// GET /api/orders/:orderId - route to get a specific order by it's ID (Added middleware)
+router.get("/:orderId", validateToken, adminAuth, getOrderById);
 
 // PATCH /api/orders/:id/status - route to update an orders status to either "fulfilled" or "unfulfilled" (Added middleware)
 router.patch("/:id/status", validateToken, adminAuth, updateOrderStatus);
