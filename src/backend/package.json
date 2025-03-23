@@ -6,8 +6,9 @@
     "start": "node src/index.js",
     "dev": "node src/index.js --watch",
     "seed": "node src/utils/seeding.js",
-    "drop": "node src/utils/dropping.js"
-    
+    "drop": "node src/utils/dropping.js",
+    "test": "jest",
+    "test-cc": "jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,15 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.14.2",
     "mongoose": "^8.12.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
-  
 }
