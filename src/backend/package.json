@@ -8,7 +8,8 @@
     "seed": "node src/utils/seeding.js",
     "drop": "node src/utils/dropping.js",
     "test": "jest",
-    "test-cc": "jest --coverage"
+    "test-cc": "jest --coverage",
+    "test-ccc": "npm test -- --coverage"
   },
   "keywords": [],
   "author": "",
