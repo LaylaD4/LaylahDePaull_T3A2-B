@@ -3,6 +3,7 @@ import HeroSection from "../components/HeroSection";
 import LinkButton from "../components/LinkButton";
 import ProductList from "../components/ProductList";
 import TextBanner from "../components/TextBanner";
+import VideoList from "../components/VideoList";
 
 export default function HomePage() {
     return(
@@ -14,6 +15,11 @@ export default function HomePage() {
                 <LinkButton to="/shop" text="View More" />
             </div>
             <AboutSection />
+            <TextBanner text="Take A Look At Our Video Tutorials. Learn How To Use Each Kit, & Pick Up Some Handy Hints..." />
+            <VideoList limit={3} gridCols="md:grid-cols-3" />
+            <div className="flex justify-center mb-6">
+                <LinkButton to="/shop" text="View More" />
+            </div>
         </div>
     )
 }
