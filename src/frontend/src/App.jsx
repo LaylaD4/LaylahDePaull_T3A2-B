@@ -3,6 +3,7 @@ import HomeLayout from './layouts/HomeLayout';
 import HomePage from './pages/HomePage'; 
 import ShopPage from './pages/ShopPage';
 import ProductPage from './pages/ProductPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/product/:id" element={<ProductPage />} /> 
+          <Route path="/about" element={<AboutPage />} />
         </Route>
       </Routes>
     </Router>
