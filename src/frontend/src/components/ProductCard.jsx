@@ -29,7 +29,8 @@ export default function ProductCard({ product, showAddToCart, bgColour }) {
             </Link>
 
             {/* Add to Cart Button - only shown if showAddToCart is true, ie; for the ShopPage, false for HomePage */}
-            {showAddToCart && <AddToCartButton />}
+            {/* Pass the product to the AddToCartButton so it can be added to the cart when clicked */}
+            {showAddToCart && <AddToCartButton product={product} />}
 
         </div>
     );
