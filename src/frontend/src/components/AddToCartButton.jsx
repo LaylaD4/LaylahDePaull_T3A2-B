@@ -28,7 +28,7 @@ export default function AddToCartButton({ product }) {
             {/* Use ternary to check if the product is already in the cart, if so show quantity controls, if not show the add to cart button */}
             {cartItem ? (
                 // Quantity control buttons below (+ & -)
-                <div className="flex items-center gap-2 border-2 border-[#868A97] bg-[#FFFFFF] rounded">
+                <div className="flex items-center gap-2 border-2 border-[#868A97] bg-[#FFFFFF] overflow-hidden rounded">
                     
                     {/* (-) button, call handleCartDecrease to decrease quantity (-1) or remove the item completely */}
                     <button
@@ -38,7 +38,7 @@ export default function AddToCartButton({ product }) {
                     </button>
 
                     {/* Show the current quantity of the product in the cart */}
-                    <span className="text-lg font-semibold">{cartItem.quantity}</span>
+                    <span className="text-lg font-medium px-1 w-4 text-center">{cartItem.quantity}</span>
                     
                     {/* (+) button, adds the same product again (quantity + 1) */}
                     <button

@@ -2,9 +2,18 @@ import { useCart } from "../context/CartContext";
 
 // The CartTable component displays all the items in the cart in a simple table format
 export default function CartTable({ text }) {
-    
-    // Need to get the cart array from context
-    const { cart } = useCart();
+
+    // Get cart & functions from CartContext using the custom hook
+    const { cart, addToCart, updateQuantity, removeFromCart } = useCart();
+
+    // Function to decrease the quantity of a product in the cart — need to handle for when quantity reaches 0
+    const handleCartDecrease = (item) => {
+        if (item.quantity === 1) {
+            removeFromCart(item._id);
+        } else {
+            updateQuantity(item._id, item.quantity - 1);
+        }
+    };
 
     // Calculate the total amount by adding up (price * quantity) for each item 
     let subtotal = 0;
@@ -16,7 +25,7 @@ export default function CartTable({ text }) {
     const total = subtotal.toFixed(2);
 
     return (
-        
+
         // Main container that wraps the table, & centres it
         <div className="w-4/5 mx-auto m-5">
 
@@ -42,7 +51,30 @@ export default function CartTable({ text }) {
                             <tr key={index} className="border-b border-[#D9D9D9] font-urbanist text-sm md:text-md lg:text-lg">
                                 <td className="p-3 w-1/4">{item.title}</td>
                                 <td className="p-3 w-1/4">${item.price.toFixed(2)}</td>
-                                <td className="p-3 w-1/4">{item.quantity}</td>
+                                
+                                {/* Add adjustable quantity control buttons here */}
+                                <td className="p-3 w-1/4">
+                                    <div className="flex items-center gap-2 border-2 border-[#bcbdc3] rounded overflow-hidden w-fit">
+                                        {/* (-) button, call handleCartDecrease to decrease quantity (-1) or remove the item completely */}
+                                        <button
+                                            onClick={() => handleCartDecrease(item)}
+                                            className="border-r-2 border-[#868A97] px-2 py-1 bg-white text-black hover:bg-[#c0747e]/40 transition">
+                                            -
+                                        </button>
+
+                                         {/* Show the current quantity of the product in the cart */}
+                                        <span className="text-lg font-medium px-1 w-4 text-center">{item.quantity}</span>
+
+                                        {/* (+) button, adds the same product again (quantity + 1) */}
+                                        <button 
+                                            onClick={() => addToCart(item)}
+                                            className="px-2 py-1 border-l-2 border-[#868A97] bg-white text-black hover:bg-[#6fad91]/40 transition">
+                                            +
+                                        </button>
+                                    </div>
+
+                                </td>
+
                                 <td className="p-3 w-1/4">${(item.price * item.quantity).toFixed(2)}</td>
                             </tr>
                         ))
