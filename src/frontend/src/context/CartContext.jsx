@@ -30,8 +30,25 @@ export default function CartProvider({ children }) {
         });
     };
 
+    // Function to remove a product from the cart by its id
+    const removeFromCart = (id) => {
+        // Remove the item from the cart by filtering out the one with the matching _id; will use when quantity = 1
+        setCart((prev) => prev.filter((item) => item._id !== id));
+    };
+
+    // Function to update the quantity of a product already in the cart
+    const updateQuantity = (id, newQuantity) => {
+        // Update the quantity of a cart item by matching its _id & setting the new quantity
+        setCart((prev) =>
+            prev.map((item) =>
+                item._id === id ? { ...item, quantity: newQuantity } : item
+            )
+        );
+    };
+
+
     return (
-        <CartContext.Provider value={{ cart, addToCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
             {children}
         </CartContext.Provider>
     );
