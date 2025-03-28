@@ -1,12 +1,22 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // Create the CartContext to be used throughout the app (eg; ShopPage, CartPage, ProductPage, CheckoutPage)
 const CartContext = createContext();
 
 export default function CartProvider({ children }) {
 
-    // Initialise cart as an empty array
-    const [cart, setCart] = useState([]);
+    // Initialise cart with data from local storage (for page refresh), or just start with an empty array
+    const [cart, setCart] = useState(() => {
+        const saveCart = localStorage.getItem("cart");
+        // Use a ternary to check if a cart exists — parse it (convert string back to array) if it does, or return an empty array if it doesn't
+        return saveCart ? JSON.parse(saveCart) : [];
+    });
+
+    // Save the cart to localStorage every time it updates
+    useEffect(() => {
+         // Convert the cart to a string, & save it to local storage (must be a string); runs whenever cart changes
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
 
     // Function to add a product to the cart, or increase its quantity if it already exists
     const addToCart = (product) => {
