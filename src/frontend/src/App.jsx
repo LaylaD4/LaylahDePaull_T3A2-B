@@ -8,6 +8,7 @@ import TutorialsPage from './pages/TutorialsPage';
 import CartPage from './pages/CartPage';
 import CartProvider from './context/CartContext';
 import CheckoutPage from './pages/CheckoutPage';
+import OrderSuccessPage from './pages/OrderSuccessPage';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           </Route>
           {/* NOT wrapped with HomeLayout */}
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/success" element={<OrderSuccessPage />} />
         </Routes>
       </Router>
     </CartProvider>

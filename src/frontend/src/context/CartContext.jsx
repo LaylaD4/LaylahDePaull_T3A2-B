@@ -56,9 +56,22 @@ export default function CartProvider({ children }) {
         );
     };
 
+    // Function to clear the cart & remove from localStorage
+    const clearCart = () => {
+        // Set cart as an empty array
+        setCart([]);
+        
+        // Remove the cart from local storage (saved during CartPage use)
+        localStorage.removeItem("cart");
+        
+        // Remove the latest order from local storage (saved at checkout)
+        localStorage.removeItem("latestOrder");
+
+    };
+
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}>
             {children}
         </CartContext.Provider>
     );

@@ -106,8 +106,8 @@ export default function CheckoutPage() {
 
             <hr className="border-black" />
 
-            {/* Cart Table */}
-            <CartTable text="Total:" />
+            {/* Cart Table, remove buttons that adjust quantity (+ & -) */}
+            <CartTable text="Total:" showQuantityControls={false}/>
 
             <hr className="border-black" />
 
