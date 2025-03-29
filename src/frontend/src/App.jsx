@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage';
 import TutorialsPage from './pages/TutorialsPage';
 import CartPage from './pages/CartPage';
 import CartProvider from './context/CartContext';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
             <Route path="/tutorials" element={<TutorialsPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Route>
+          {/* NOT wrapped with HomeLayout */}
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </Router>
     </CartProvider>
