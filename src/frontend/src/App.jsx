@@ -10,6 +10,7 @@ import CartProvider from './context/CartContext';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderSuccessPage from './pages/OrderSuccessPage';
 import LoginPage from './pages/LoginPage';
+import AdminOrdersPage from './pages/AdminOrdersPage';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/success" element={<OrderSuccessPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/admin/orders" element={<AdminOrdersPage />} />
         </Routes>
       </Router>
     </CartProvider>
