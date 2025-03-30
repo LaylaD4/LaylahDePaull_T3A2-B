@@ -12,7 +12,7 @@ export default function SingleProduct({ product, bgColour }) {
                     // The product image is stored in public backend folder, need to get image URL path to load the image; as {product.image} only fetches the filename.
                     src={`${import.meta.env.VITE_BACKEND_API_URL}/${product.image}`}
                     alt={product.title}
-                    className="max-w-[400px] min-w-[300px] w-[80%] h-auto shadow-xl object-contain border-2 border-[#453F3F]/20"
+                    className="max-w-[400px] min-w-[300px] w-[80%] h-auto shadow-xl object-contain "
                 />
             </div>
 
@@ -29,9 +29,9 @@ export default function SingleProduct({ product, bgColour }) {
                     {/* Product price */}
                     <p className="text-xl font-medium text-[#453F3F] text-center mb-4">${product.price}</p>
 
-                    {/* Add to cart button - centred */}
+                    {/* Add to cart button - centred, pass the product as prop, so it can be added to the cart */}
                     <div className="flex justify-center">
-                        <AddToCartButton />
+                        <AddToCartButton product={product} />
                     </div>
                 </div>
             </div>
