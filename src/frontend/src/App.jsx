@@ -9,7 +9,6 @@ import CartPage from './pages/CartPage';
 import CartProvider from './context/CartContext';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderSuccessPage from './pages/OrderSuccessPage';
-import LoginPage from './pages/LoginPage';
 
 function App() {
 
@@ -29,7 +28,6 @@ function App() {
           {/* NOT wrapped with HomeLayout */}
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/success" element={<OrderSuccessPage />} />
-          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </Router>
     </CartProvider>
