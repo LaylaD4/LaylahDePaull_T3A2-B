@@ -11,7 +11,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import OrderSuccessPage from './pages/OrderSuccessPage';
 import LoginPage from './pages/LoginPage';
 import AdminOrdersPage from './pages/AdminOrdersPage';
-
+import AdminOrderDetailsPage from "./pages/AdminOrderDetailsPage";
 
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
           <Route path="/success" element={<OrderSuccessPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/admin/orders" element={<AdminOrdersPage />} />
+          <Route path="/admin/orders/:orderId" element={<AdminOrderDetailsPage />} />
         </Routes>
       </Router>
     </CartProvider>
