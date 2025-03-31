@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom"
 import Banner from "../components/Banner";
 import OrderDetails from "../components/OrderDetails";
 import CartTable from "../components/CartTable";
+import CopyFooter from "../components/CopyFooter";
 
 // The AdminOrderDetailsPage displays a specific customer's order details, including their shipping info (OrderDetails) and the items they ordered (CartTable).
 export default function AdminOrderDetailsPage() {
@@ -85,12 +86,7 @@ export default function AdminOrderDetailsPage() {
             </div>
 
              {/* Small copyright footer */}
-            <div className="mt-auto w-full text-center py-4">
-                <hr className="border-black w-full mx-auto mb-4" />
-                <p className="text-center text-xs sm:text-sm md:text-md">
-                    Leanne's Collection &copy; Copyright {new Date().getFullYear()}
-                </p>
-            </div>
+            <CopyFooter />
         </div>
     )
 }

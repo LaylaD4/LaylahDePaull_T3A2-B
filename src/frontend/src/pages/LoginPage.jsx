@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Banner from "../components/Banner";
+import CopyFooter from "../components/CopyFooter";
 
 
 // LoginPage allows an admin to create (register) an admin account (limit of 2 accounts only, enforced by backend)
@@ -124,12 +125,7 @@ export default function LoginPage() {
             <hr className="border-black" />
 
             {/* Small copyright footer */}
-            <div className="mt-auto w-full text-center py-4">
-                <hr className="border-black w-full mx-auto mb-4" />
-                <p className="text-center text-xs sm:text-sm md:text-md">
-                    Leanne's Collection &copy; Copyright {new Date().getFullYear()}
-                </p>
-            </div>
+            <CopyFooter />
 
         </div>
     )

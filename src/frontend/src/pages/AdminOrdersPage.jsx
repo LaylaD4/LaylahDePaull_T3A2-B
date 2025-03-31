@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom";
 import Banner from "../components/Banner";
+import CopyFooter from "../components/CopyFooter";
 
 export default function AdminOrdersPage() {
     // Set up state to store orders
@@ -157,12 +158,7 @@ export default function AdminOrdersPage() {
             </div>
 
             {/* Small copyright footer */}
-            <div className="mt-auto w-full text-center py-4">
-                <hr className="border-black w-full mx-auto mb-4" />
-                <p className="text-center text-xs sm:text-sm md:text-md">
-                    Leanne's Collection &copy; Copyright {new Date().getFullYear()}
-                </p>
-            </div>
+            <CopyFooter />
 
         </div>
     )
