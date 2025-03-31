@@ -6,6 +6,7 @@ import { useState } from "react";
 import CheckoutForm from "../components/CheckoutForm";
 import CartTable from "../components/CartTable";
 import LinkButton from "../components/LinkButton";
+import CalculateOrder from "../utils/CalculateOrder";
 
 // CheckoutPage – displays a banner, a form for customer to fill out their order shipping details, & an itemised list of products they're purchasing (CartTable)
 export default function CheckoutPage() {
@@ -43,14 +44,8 @@ export default function CheckoutPage() {
             return;
         }
 
-        // Calculate the total amount for 'total'
-        let subtotal = 0;
-        for (let item of cart) {
-            subtotal += item.price * item.quantity;
-        }
-
-        // Format the total to always only show 2 decimal places
-        const total = subtotal.toFixed(2);
+        // Create a new CalculateOrder instance using the cart, & call getTotal() to calculate the orders total
+        const total = new CalculateOrder(cart).getTotal();
 
         // Create the order object to send
         const order = {
