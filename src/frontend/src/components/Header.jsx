@@ -1,10 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 // Header will be used across most pages on the website, and so will add to HomeLayout to wrap those other pages.
 export default function Header() {
     // Track if mobile menu is open or closed
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Get cart from context 
+    const { cart } = useCart();
+
+    // Count items in cart
+    let cartCounter = 0;
+    for (const item of cart) {
+        cartCounter += item.quantity;
+    }
 
     return (
         <div className="bg-[#FFFFFF] p-4 py-2">
@@ -45,8 +55,24 @@ export default function Header() {
 
                 {/* Shopping cart is always on the right */}
                 <div className="flex flex-grow justify-end">
+                    
+                    {/* Wrapped cart icon in Link to CartPage */}
                     <Link to="/cart" className="cursor-pointer block z-50" >
-                        <img src="/cart-icon.png" alt="Shopping Cart Icon" className="h-12 w-12 block" />
+
+                        {/* Container to wrap cart icon image & display count */}
+                        <div className="relative p-1">
+
+                            {/* Cart icon */}
+                            <img src="/cart-icon.png" alt="Shopping Cart Icon" className="h-12 w-12 block" />
+
+                            {/* Count - display number of items in cart at right corner of icon, & use short-circuiting to ensure the number is only shown if > 0 */}
+                            {cartCounter > 0 && (
+                                <span className="absolute -top-1 -right-1 bg-[#d93772] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                                    {cartCounter}
+                                </span>
+                            )}
+                        </div>
+
                     </Link>
                 </div>
             </div>
