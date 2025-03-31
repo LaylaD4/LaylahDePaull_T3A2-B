@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import VideoCard from "./VideoCard";
+import backgroundColours from "../utils/backgroundColours";
 
 // The VideoList component shows a list of VideoCards, props control how many videos are shown (limit - for HomePage, only shows 3), how many columns to show (eg; grid-cols; 3 on tablet (md) screen for HomePage, will be 2 for TutorialsPage)
 export default function VideoList({ limit = null, gridCols }) {
@@ -26,15 +27,6 @@ export default function VideoList({ limit = null, gridCols }) {
         }
     };
 
-    // List of different background colours for each video - each video gets a different one based on its index - same as it's corresponding product.
-    const backgroundColours = [
-        "bg-[#EDF7FF]/70",
-        "bg-[#F4E6E6]/60",
-        "bg-[#F3F5DD]/70",
-        "bg-[#E3F1ED]/70",
-        "bg-[#F5F5F5]/70",
-        "bg-[#FFDEC4]/40"
-    ];
 
     // Run fetchVideos function when this component loads
     useEffect(() => {

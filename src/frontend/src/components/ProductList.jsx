@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import backgroundColours from "../utils/backgroundColours";
 
 // The ProductList component shows the list of ProductCards, props control if the Add to Cart button is shown, how many products shown (limit - for HomePage, only shows 3), how many columns to show (eg; grid-cols; 3 on tablet (md) screen for HomePage, will be 2 for ShopPage)
 export default function ProductList({ showAddToCart = true, limit = null, gridCols }) {
@@ -25,16 +26,6 @@ export default function ProductList({ showAddToCart = true, limit = null, gridCo
             console.error(error.message);
         }
     }
-
-    // List of different background colours for each product - each product gets a different one based on its index
-    const backgroundColours = [
-        "bg-[#EDF7FF]/70",
-        "bg-[#F4E6E6]/60",
-        "bg-[#F3F5DD]/70",
-        "bg-[#E3F1ED]/70",
-        "bg-[#F5F5F5]/70",
-        "bg-[#FFDEC4]/40"
-    ];
 
 
     // Run fetchProducts function when this component loads
