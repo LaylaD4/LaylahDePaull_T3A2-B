@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router-dom"
+import { showCartToast } from "../utils/toastUtils";
 import Banner from "../components/Banner"
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import CheckoutForm from "../components/CheckoutForm";
 import CartTable from "../components/CartTable";
 import LinkButton from "../components/LinkButton";
+import CalculateOrder from "../utils/CalculateOrder";
 
 // CheckoutPage – displays a banner, a form for customer to fill out their order shipping details, & an itemised list of products they're purchasing (CartTable)
 export default function CheckoutPage() {
@@ -42,14 +44,8 @@ export default function CheckoutPage() {
             return;
         }
 
-        // Calculate the total amount for 'total'
-        let subtotal = 0;
-        for (let item of cart) {
-            subtotal += item.price * item.quantity;
-        }
-
-        // Format the total to always only show 2 decimal places
-        const total = subtotal.toFixed(2);
+        // Create a new CalculateOrder instance using the cart, & call getTotal() to calculate the orders total
+        const total = new CalculateOrder(cart).getTotal();
 
         // Create the order object to send
         const order = {
@@ -74,6 +70,9 @@ export default function CheckoutPage() {
             // Save order in localStorage, & include the order number
             localStorage.setItem("latestOrder", JSON.stringify({ ...order, orderNumber: data.orderNumber }));
 
+            // Toastify message on successful order submission
+            showCartToast("Order submitted successfully!", "success");
+
             // Navigate to success page
             navigate("/success");
 
@@ -94,7 +93,7 @@ export default function CheckoutPage() {
                     <img src="/lea-logo.png" alt="Leanne's Collection Logo" className="h-14 w-auto" />
                 </Link>
             </header>
-            
+
             {/* Banner */}
             <Banner text="Checkout" />
 
@@ -113,10 +112,10 @@ export default function CheckoutPage() {
 
             {/* Buttons */}
             <div className="flex justify-between items-center m-8 md:mx-20">
-                
+
                 {/* Back to Cart link button */}
                 <LinkButton text="Back To Cart" to="/cart" className="w-40 text-center md:w-52" />
-                
+
                 {/* Submit order button, linked using the forms id to submit it*/}
                 <button
                     type="submit"

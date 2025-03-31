@@ -1,4 +1,6 @@
 import { useCart } from "../context/CartContext";
+import { showCartToast } from "../utils/toastUtils";
+import CalculateOrder from "../utils/CalculateOrder";
 
 // The CartTable component displays all the items in the cart in a simple table format
 export default function CartTable({ items = null, text, showQuantityControls = true }) {
@@ -13,19 +15,15 @@ export default function CartTable({ items = null, text, showQuantityControls = t
     const handleCartDecrease = (item) => {
         if (item.quantity === 1) {
             removeFromCart(item._id);
+            // Toastify message when the item is removed from the cart
+            showCartToast(`${item.title} removed from cart`, "remove");
         } else {
             updateQuantity(item._id, item.quantity - 1);
         }
     };
 
-    // Calculate the total amount by adding up (price * quantity) for each item 
-    let subtotal = 0;
-    for (let item of cartItems) {
-        subtotal += item.price * item.quantity;
-    }
-
-    // Format the total to always only show 2 decimal places
-    const total = subtotal.toFixed(2);
+    // Create a new CalculateOrder instance using the cart, & call getTotal() to calculate the orders total in cart
+    const total = new CalculateOrder(cart).getTotal();
 
     return (
 

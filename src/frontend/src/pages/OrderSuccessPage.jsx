@@ -38,7 +38,7 @@ export default function OrderSuccessPage() {
 
             {/* Order Confrmation message to customer (personalised 1st name) */}
             <h2 className="text-center font-medium font-urbanist p-4">
-                {order && order.orderNumber ? `Congratulations ${order.name.split(" ")[0]}, your order #${order.orderNumber} was successful` : "Processing..."}
+                {order && order.orderNumber ? `Congratulations ${order.name.split(" ")[0]}, your order #${order.orderNumber} was successful!` : "Processing..."}
             </h2>
 
             {/* Customers order details ie; name, email, address */}

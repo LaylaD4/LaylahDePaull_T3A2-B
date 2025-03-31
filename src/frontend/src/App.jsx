@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import HomeLayout from './layouts/HomeLayout';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
@@ -13,12 +16,13 @@ import LoginPage from './pages/LoginPage';
 import AdminOrdersPage from './pages/AdminOrdersPage';
 import AdminOrderDetailsPage from "./pages/AdminOrderDetailsPage";
 
-
 function App() {
 
   return (
     <CartProvider>
       <Router>
+        {/* For notifications to shown anywhere in app */}
+        <ToastContainer />
         <Routes>
           {/* Wrap pages with HomeLayout which includes the Header & Footer */}
           <Route path="/" element={<HomeLayout />}>
