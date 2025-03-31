@@ -1,4 +1,5 @@
 import { useCart } from "../context/CartContext";
+import { showCartToast } from "../utils/toastUtils";
 
 // The CartTable component displays all the items in the cart in a simple table format
 export default function CartTable({ items = null, text, showQuantityControls = true }) {
@@ -13,6 +14,8 @@ export default function CartTable({ items = null, text, showQuantityControls = t
     const handleCartDecrease = (item) => {
         if (item.quantity === 1) {
             removeFromCart(item._id);
+            // Toastify message when the item is removed from the cart
+            showCartToast(`${item.title} removed from cart`, "remove");
         } else {
             updateQuantity(item._id, item.quantity - 1);
         }

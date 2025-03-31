@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import { showCartToast } from "../utils/toastUtils";
 import Banner from "../components/Banner"
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
@@ -74,6 +75,9 @@ export default function CheckoutPage() {
             // Save order in localStorage, & include the order number
             localStorage.setItem("latestOrder", JSON.stringify({ ...order, orderNumber: data.orderNumber }));
 
+            // Toastify message on successful order submission
+            showCartToast("Order submitted successfully!", "success");
+
             // Navigate to success page
             navigate("/success");
 
@@ -94,7 +98,7 @@ export default function CheckoutPage() {
                     <img src="/lea-logo.png" alt="Leanne's Collection Logo" className="h-14 w-auto" />
                 </Link>
             </header>
-            
+
             {/* Banner */}
             <Banner text="Checkout" />
 
@@ -113,10 +117,10 @@ export default function CheckoutPage() {
 
             {/* Buttons */}
             <div className="flex justify-between items-center m-8 md:mx-20">
-                
+
                 {/* Back to Cart link button */}
                 <LinkButton text="Back To Cart" to="/cart" className="w-40 text-center md:w-52" />
-                
+
                 {/* Submit order button, linked using the forms id to submit it*/}
                 <button
                     type="submit"
