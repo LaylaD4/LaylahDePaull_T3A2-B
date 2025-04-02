@@ -56,6 +56,7 @@ export default function OrderSuccessPage() {
             {/* Back Home Button with clearCart */}
             <div className="flex justify-center md:justify-start m-8">
                 <Link to="/"
+                    data-testid="back-home-button"
                     className="px-4 md:px-6 py-2 bg-[#868A97] font-urbanist text-white text-sm md:text-lg rounded-lg hover:bg-[#2e6598] transition"
                     // When user clicks, clears cart from context & local storage
                     onClick={clearCart}>Back Home</Link>
