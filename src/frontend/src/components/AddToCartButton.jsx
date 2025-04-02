@@ -63,6 +63,7 @@ export default function AddToCartButton({ product }) {
                 // If the product is NOT already in the cart, just show the Add to Cart button
                 <button
                     onClick={handleCartIncrease}
+                    data-testid="add-to-cart-button"
                     className="px-3 py-1 bg-[#868A97] text-[#FFFFFF] font-urbanist text-sm md:text-base rounded hover:bg-[#2e6598] transition">
                     Add to Cart
                 </button>

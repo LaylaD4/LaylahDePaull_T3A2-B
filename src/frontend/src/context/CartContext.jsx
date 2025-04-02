@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 // Create the CartContext to be used throughout the app (eg; ShopPage, CartPage, ProductPage, CheckoutPage)
-const CartContext = createContext();
+export const CartContext = createContext();
 
 export default function CartProvider({ children }) {
 

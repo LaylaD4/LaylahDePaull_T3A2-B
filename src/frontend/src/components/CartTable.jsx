@@ -96,7 +96,7 @@ export default function CartTable({ items = null, text, showQuantityControls = t
             {cartItems.length > 0 && (
                 <div className="mt-6 flex justify-center md:justify-end text-xl font-semibold p-3">
                     <span>{text}</span>
-                    <span className="ml-4">${total}</span>
+                    <span data-testid="cart-subtotal" className="ml-4">${total}</span>
                 </div>
             )}
         </div>

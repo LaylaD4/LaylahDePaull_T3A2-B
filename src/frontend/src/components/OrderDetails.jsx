@@ -14,13 +14,13 @@ export default function OrderDetails({ order }) {
             <h3 className="text-2xl font-semibold font-ysabeau text-[#868A97] mb-4">Order Details</h3>
             
             {/* Customers name */}
-            <p className="text-lg text-black"><strong className="text-[#868A97]">Name:</strong> {order.name}</p>
+            <p data-testid="customer-name" className="text-lg text-black"><strong className="text-[#868A97]">Name:</strong> {order.name}</p>
             
             {/* Customers email */}
-            <p className="text-lg text-black"><strong className="text-[#868A97]">Email:</strong> {order.email}</p>
+            <p data-testid="customer-email" className="text-lg text-black"><strong className="text-[#868A97]">Email:</strong> {order.email}</p>
             
             {/* Customers address */}
-            <p className="text-lg text-black"><strong className="text-[#868A97]">Address:</strong> {order.address}</p>
+            <p data-testid="customer-address" className="text-lg text-black"><strong className="text-[#868A97]">Address:</strong> {order.address}</p>
 
         </div>
     );
