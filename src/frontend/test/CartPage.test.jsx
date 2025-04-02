@@ -4,7 +4,7 @@ import CartPage from "../src/pages/CartPage";
 import { CartContext } from "../src/context/CartContext";
 import { MemoryRouter } from "react-router-dom";
 
-// test product in cart
+// Test product in cart
 const testCartItem = {
   _id: "123",
   title: "Rainbow Flower Kit",
@@ -12,10 +12,27 @@ const testCartItem = {
   quantity: 1,
 };
 
-// UNIT TEST: renders CartPage with 1 item in the cart, & checks that the items title, subtotal, & the checkout button are displayed correctly.
+// UNIT TEST 1: shows empty cart message when there are no items in the cart
+test("shows empty cart message when cart is empty", () => {
+
+  // Render CartPage with a mocked empty cart
+  render(
+    <CartContext.Provider value={{ cart: [] }}>
+      <MemoryRouter>
+        <CartPage />
+      </MemoryRouter>
+    </CartContext.Provider>
+  );
+
+  // Check that the empty cart message is shown
+  expect(screen.getByText("Your Cart is Currently Empty.")).toBeInTheDocument();
+});
+
+// UNIT TEST 2: renders CartPage with 1 item in the cart, & shows the title, subtotal, & the checkout button
 test("shows item in cart, subtotal & checkout button", () => {
-    // Render CartPage with a mocked cart & MemoryRouter so cart data & links work
-    render(
+
+  // Render CartPage with a mocked cart containing 1 item
+  render(
     <CartContext.Provider value={{ cart: [testCartItem] }}>
       <MemoryRouter>
         <CartPage />
@@ -29,6 +46,6 @@ test("shows item in cart, subtotal & checkout button", () => {
   // Check that the cart subtotal is correct
   expect(screen.getByTestId("cart-subtotal")).toHaveTextContent("$109.95");
 
-  // Check that the checkout button is visible when cart has items an item in it
+  // Check that the checkout button is visible 
   expect(screen.getByText("Checkout")).toBeInTheDocument();
 });
