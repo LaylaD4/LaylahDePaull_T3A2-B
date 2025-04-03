@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom";
 import Banner from "../components/Banner";
 import CopyFooter from "../components/CopyFooter";
+import OrderTable from "../components/OrderTable";
+
 
 export default function AdminOrdersPage() {
     // Set up state to store orders
@@ -79,9 +81,8 @@ export default function AdminOrdersPage() {
     return (
         // Main Container for page, with header, logout button, banner, order table, & footer
         <div className="flex flex-col min-h-screen">
-
             {/* Header with Logo & Logout Button */}
-            <header className="relative w-full flex items-center p-2 bg-white px-6 my-2">
+            <header className="fixed top-0 left-0 w-full flex items-center p-2 bg-white px-6 my-2 z-50">
 
                 {/* Centered Logo */}
                 <Link to="/" className="absolute left-1/2 transform -translate-x-1/2">
@@ -95,67 +96,16 @@ export default function AdminOrdersPage() {
                     Logout
                 </button>
 
+                {/* Banner */}
+                <div className="fixed left-0 w-full mt-36">
+                    <Banner text="Orders Dashboard" />
+                </div>
+
             </header>
-
-            {/* Banner */}
-            <Banner text="Orders Dashboard" />
-
-            {/* Table container wrapper */}
-            <div className="overflow-x-auto w-full flex-grow">
-
-                {/* Table to display orders made */}
-                <table className="w-4/5 max-w-5xl mx-auto mt-4 border-collapse">
-
-                    {/* Table headings - order number, customer's name, order total, order date, order status (unfulfilled/fulfilled) */}
-                    <thead>
-                        <tr className="border-b-4 border-[#D9D9D9] text-[#868A97] font-ysabeau text-sm md:text-lg lg:text-xl p-4">
-                            <th className="p-2 ">Order</th>
-                            <th className="p-2 ">Name</th>
-                            <th className="p-2 ">Total</th>
-                            <th className="p-2 ">Date</th>
-                            <th className="p-2 ">Status</th>
-                        </tr>
-                    </thead>
-
-                    {/* Table body - order data rows */}
-                    <tbody >
-                        {/* Map orders */}
-                        {orders.map((order) => (
-                            <tr key={order._id} className="text-center font-medium text-sm md:text-md lg:text-lg border">
-
-                               {/* Order number – link to page (/:id) that shows more detailed info about the order (eg; customer's email/address & itemised product list) */}
-                                <td className="font-urbanist p-2 text-[#3f52bf] cursor-pointer border">
-                                    <Link to={`/admin/orders/${order._id}`} className="hover:underline">
-                                        #{order.orderNumber}
-                                    </Link>
-                                </td>
-
-                                {/* Customers name */}
-                                <td className="font-urbanist p-2 border">{order.name}</td>
-
-                                {/* Order total */}
-                                <td className="font-urbanist p-2 border ">${order.total.toFixed(2)}</td>
-
-                               {/* Date order was created */}
-                                <td className="font-urbanist p-2 border">{new Date(order.createdAt).toLocaleDateString()}</td>
-
-                                {/* Order status button toggle (unfulfilled/fulfilled) */}
-                                <td className="font-urbanist p-2 w-32">
-                                    <button
-                                        // When clicked, order status is changed
-                                        onClick={() => changeOrderStatus(order._id)}
-                                        // Use ternary to change background colour of button based on status (unfulfilled/fulfilled)
-                                        className={`px-2 py-1 w-4/5 rounded-3xl text-black lg:w-full ${order.status === "fulfilled" ? "bg-[#E3F1ED]" : "bg-[#FFDEC4]"}`}>
-                                        {order.status}
-                                    </button>
-                                </td>
-
-                            </tr>
-                        ))}
-                    </tbody>
-
-                </table>
-            </div>
+            {/* 
+           
+            {/* Order table to display all orders */}
+            <OrderTable orders={orders} changeOrderStatus={changeOrderStatus} />
 
             {/* Small copyright footer */}
             <CopyFooter />
