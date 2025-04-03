@@ -26,18 +26,20 @@ export default function OrderSuccessPage() {
     return (
         <div>
             {/* Header with Logo */}
-            <header className="w-full flex justify-center items-center p-2 bg-white">
+            <header className=" fixed top-0 left-0 w-full flex justify-center items-center p-2 bg-white">
                 {/* Also clears cart from context & local storage if user clicks the logo to head back home */}
                 <Link to="/" className="cursor-pointer" onClick={clearCart}>
                     <img src="/lea-logo.png" alt="Leanne's Collection Logo" className="h-14 w-auto" />
                 </Link>
+
+                {/* Use ternary to check for both order & order number, if there use that as text, otherwise "Processing..." message */}
+                <div className="fixed left-0 w-full mt-36">
+                    <Banner text={order && order.orderNumber ? `Order #${order.orderNumber}` : "Processing..."} />
+                </div>
             </header>
 
-            {/* Use ternary to check for both order & order number, if there use that as text, otherwise "Processing..." message */}
-            <Banner text={order && order.orderNumber ? `Order #${order.orderNumber}` : "Processing..."} />
-
             {/* Order Confrmation message to customer (personalised 1st name) */}
-            <h2 className="text-center font-medium font-urbanist p-4">
+            <h2 className="text-center font-medium font-urbanist p-4 mt-40 mb-4">
                 {order && order.orderNumber ? `Congratulations ${order.name.split(" ")[0]}, your order #${order.orderNumber} was successful!` : "Processing..."}
             </h2>
 
@@ -52,6 +54,8 @@ export default function OrderSuccessPage() {
             ) : (
                 <p className="text-center text-[#df396b]">No items found in your order.</p>
             )}
+
+            <hr className="border-black" />
 
             {/* Back Home Button with clearCart */}
             <div className="flex justify-center md:justify-start m-8">

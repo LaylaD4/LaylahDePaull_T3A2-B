@@ -5,13 +5,15 @@ import { useCart } from "../context/CartContext";
 
 // This page shows the user's shopping cart & a checkout button if the cart isn't empty
 export default function CartPage() {
-    
+
     // Get the cart from context to check if it's empty (for showing/hiding the checkout button)
     const { cart } = useCart();
-    
+
     return (
         <div>
-            <Banner text="Shopping Cart" />
+            <div className="mt-20">
+                <Banner text="Shopping Cart" />
+            </div>
             <CartTable text="Subtotal:" />
             <hr className="border-black" />
             <div className=" flex justify-between items-center m-8">

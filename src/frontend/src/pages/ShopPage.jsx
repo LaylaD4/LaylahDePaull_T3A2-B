@@ -5,9 +5,11 @@ import Banner from "../components/Banner";
 export default function ShopPage() {
     return (
         <div>
-            <Banner text="Shop Our Range Of Kits" />
+            <div className="mt-20">
+                <Banner text="Shop Our Range Of Kits" />
+            </div>
             {/* Only want to show products in 2 columns on tablets (md) for this page */}
-            <ProductList gridCols = "md:grid-cols-2" />
+            <ProductList gridCols="md:grid-cols-2" />
         </div>
     )
 }

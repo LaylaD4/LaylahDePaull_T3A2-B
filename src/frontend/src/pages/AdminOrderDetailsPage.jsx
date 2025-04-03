@@ -56,17 +56,21 @@ export default function AdminOrderDetailsPage() {
         <div className="flex flex-col min-h-screen">
 
             {/* Header */}
-            <header className="w-full flex justify-center items-center p-2 bg-white">
-                <Link to="/" className="cursor-pointer">
+            <header className="fixed top-0 left-0 w-full flex justify-center items-center p-2 bg-white">
+                <Link to="/" className="cursor-pointer z-50">
                     <img src="/lea-logo.png" alt="Leanne's Collection Logo" className="h-14 w-auto" />
                 </Link>
+
+                {/* Banner – use a ternary to show the order number if available, otherwise show Order */}
+                <div className="fixed w-full mt-36">
+                    <Banner text={order && order.orderNumber ? `Order #${order.orderNumber}` : "Order"} />
+                </div>
             </header>
 
-            {/* Banner – use a ternary to show the order number if available, otherwise show Order */}
-            <Banner text={order && order.orderNumber ? `Order #${order.orderNumber}` : "Order"} />
-
             {/* Order Details - use short circuiting to wait until name, email, & address are loaded  */}
-            { order && <OrderDetails order={order} /> }
+            <div className="mt-40">
+                {order && <OrderDetails order={order} />}
+            </div>
 
             <hr className="border-black" />
 
@@ -85,7 +89,7 @@ export default function AdminOrderDetailsPage() {
                 </Link>
             </div>
 
-             {/* Small copyright footer */}
+            {/* Small copyright footer */}
             <CopyFooter />
         </div>
     )

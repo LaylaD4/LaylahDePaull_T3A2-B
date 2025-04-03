@@ -64,64 +64,68 @@ export default function LoginPage() {
         <div className="flex flex-col min-h-screen">
 
             {/* Header with Logo */}
-            <header className="w-full flex justify-center items-center p-2 bg-white">
-                <Link to="/" className="cursor-pointer">
+            <header className=" fixed top-0 left-0 w-full flex justify-center items-center p-2 bg-white">
+                <Link to="/" className="cursor-pointer z-50">
                     <img src="/lea-logo.png" alt="Leanne's Collection Logo" className="h-14 w-auto" />
                 </Link>
+                {/* Banner; login or register (use ternary to decide text) */}
+                <div className="fixed w-full mt-36">
+                    <Banner text={isRegistering ? "Register" : "Login"} />
+                </div>
             </header>
 
-            {/* Banner; login or register (use ternary to decide text) */}
-            <Banner text={isRegistering ? "Register" : "Login"} />
 
             {/* Container that wraps form for login/register */}
-            <div className="flex justify-center bg-[#BCA6A6]/40 items-center mx-8 md:mx-20 shadow-md">
-                <div className="w-[70%] max-w-lg p-6">
+            <div className="mt-36">
+                <div className="flex justify-center bg-[#BCA6A6]/40 items-center mx-8 md:mx-20 shadow-md">
+                    <div className="w-[70%] max-w-lg p-6">
 
-                    {/* Form for login/register */}
-                    <form onSubmit={handleSubmit} className="space-y-4 font-urbanist">
+                        {/* Form for login/register */}
+                        <form onSubmit={handleSubmit} className="space-y-4 font-urbanist">
 
-                        {/* Email field */}
-                        <div>
-                            <label className="block text-[#453F3F] text-sm md:text-md lg:text-lg font-medium text-center">Email</label>
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(event) => setEmail(event.target.value)}
-                                className="w-full p-2 border rounded"
-                                data-testid="email-input"
-                                required
-                            />
-                        </div>
+                            {/* Email field */}
+                            <div>
+                                <label className="block text-[#453F3F] text-sm md:text-md lg:text-lg font-medium text-center">Email</label>
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(event) => setEmail(event.target.value)}
+                                    className="w-full p-2 border rounded"
+                                    data-testid="email-input"
+                                    required
+                                />
+                            </div>
 
-                        {/* Password field */}
-                        <div>
-                            <label className="block text-[#453F3F] text-sm md:text-md lg:text-lg font-medium text-center">Password</label>
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(event) => setPassword(event.target.value)}
-                                className="w-full p-2 border rounded"
-                                data-testid="password-input"
-                                required
-                            />
-                        </div>
+                            {/* Password field */}
+                            <div>
+                                <label className="block text-[#453F3F] text-sm md:text-md lg:text-lg font-medium text-center">Password</label>
+                                <input
+                                    type="password"
+                                    value={password}
+                                    onChange={(event) => setPassword(event.target.value)}
+                                    className="w-full p-2 border rounded"
+                                    data-testid="password-input"
+                                    required
+                                />
+                            </div>
 
-                        {/* Form submit button */}
-                        <div className="flex justify-center">
-                            <button type="submit" data-testid="submit-button" className="w-48 p-2 bg-[#2D8993] text-white rounded font-urbanist mt-2 hover:bg-[#2e6598] transition">
-                                {/* Use ternary to decide text on submit button; register/login */}
-                                {isRegistering ? "Register" : "Login"}
-                            </button>
-                        </div>
-                    </form>
+                            {/* Form submit button */}
+                            <div className="flex justify-center">
+                                <button type="submit" data-testid="submit-button" className="w-48 p-2 bg-[#2D8993] text-white rounded font-urbanist mt-2 hover:bg-[#2e6598] transition">
+                                    {/* Use ternary to decide text on submit button; register/login */}
+                                    {isRegistering ? "Register" : "Login"}
+                                </button>
+                            </div>
+                        </form>
 
-                    {/* Button to toggle backend endpoint & text shown; register/login here */}
-                    <button
-                        onClick={() => setIsRegistering(!isRegistering)}
-                        data-testid="toggle-button"
-                        className="w-full mt-4 text-md md:text-lg font-ysabeau font-medium text-[#080be6e3] hover:underline">
-                        {isRegistering ? "Login Here" : "Register Here"}
-                    </button>
+                        {/* Button to toggle backend endpoint & text shown; register/login here */}
+                        <button
+                            onClick={() => setIsRegistering(!isRegistering)}
+                            data-testid="toggle-button"
+                            className="w-full mt-4 text-md md:text-lg font-ysabeau font-medium text-[#080be6e3] hover:underline">
+                            {isRegistering ? "Login Here" : "Register Here"}
+                        </button>
+                    </div>
                 </div>
             </div>
 

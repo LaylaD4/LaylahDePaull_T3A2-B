@@ -84,24 +84,23 @@ export default function CheckoutPage() {
     }
 
 
-
     return (
         <div>
             {/* Header with Logo */}
-            <header className="w-full flex justify-center items-center p-2 bg-white">
-                <Link to="/" className="cursor-pointer">
+            <header className="fixed top-0 left-0 w-full flex justify-center items-center p-2 bg-white">
+                <Link to="/" className="cursor-pointer z-50">
                     <img src="/lea-logo.png" alt="Leanne's Collection Logo" className="h-14 w-auto" />
                 </Link>
+                {/* Banner */}
+                <div className="fixed w-full mt-36">
+                    <Banner text="Checkout" />
+                </div>
             </header>
 
-            {/* Banner */}
-            <Banner text="Checkout" />
 
-            {/* Checkout Form - with styling */}
-            <div className="w-4/5 mx-auto bg-[#D9D9D9] p-6 ">
-                <h2 className="text-xl text-[#453F3F] font-urbanist font-semibold text-center mb-4">Please Enter Your Shipping Information</h2>
-                <CheckoutForm formData={formData} handleChange={handleChange} handleOrderSubmit={handleOrderSubmit} />
-            </div>
+            {/* Checkout Form */}
+            <CheckoutForm formData={formData} handleChange={handleChange} handleOrderSubmit={handleOrderSubmit} />
+           
 
             <hr className="border-black" />
 
@@ -120,7 +119,7 @@ export default function CheckoutPage() {
                 <button
                     type="submit"
                     form="checkout-form"
-                    className="w-40 text-center font-urbanist md:w-52 px-4 py-2 rounded-lg bg-[#2D8993] text-white hover:bg-[#21677A] transition">
+                    className="text-sm w-40 text-center font-urbanist md:w-52 md:text-lg px-4 py-2 rounded-lg bg-[#2D8993] text-white hover:bg-[#21677A] transition">
                     Submit Payment
                 </button>
 
