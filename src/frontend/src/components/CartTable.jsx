@@ -30,8 +30,8 @@ export default function CartTable({ items = null, text, showQuantityControls = t
         // Main container that wraps the table, & centres it
         <div className="w-4/5 mx-auto m-5">
 
-            {/* Cart table - use border-collapse to create single border between cells */}
-            <table className="w-full text-left border-collapse mt-8">
+            {/* Cart table - tablet/desktop view, use border-collapse to create single border between cells */}
+            <table className="hidden md:table w-full text-left border-collapse mt-8">
 
                 {/* Use short-circuiting to only show the table headings if the cart is NOT empty */}
                 {cartItems.length !== 0 && (
@@ -91,6 +91,65 @@ export default function CartTable({ items = null, text, showQuantityControls = t
                     )}
                 </tbody>
             </table>
+
+            {/* Cart table mobile view */}
+            <div className="md:hidden flex flex-col gap-6 mt-8">
+                {cartItems.length > 0 ? (
+                    cartItems.map((item, index) => (
+                        <div key={index} className="border-b pb-6 font-urbanist text-sm flex flex-col gap-3">
+
+                            {/* Name & value rows */}
+                            <div className="text-center">
+                                <div className="text-[#868A97] font-ysabeau text-xl font-semibold">Name</div>
+                                <div className="font-medium text-lg">{item.title}</div>
+                            </div>
+
+                            {/* Price, quantity, & total labels row */}
+                            <div className="flex justify-between text-[#868A97] font-ysabeau text-xl font-semibold px-2">
+                                <span>Price</span>
+                                <span>Quantity</span>
+                                <span>Total</span>
+                            </div>
+
+                            {/* Price, quantity, & total values row */}
+                            <div className="flex justify-between items-center px-2">
+
+                                {/* Price value */}
+                                <span className="text-md font-medium">${item.price.toFixed(2)}</span>
+
+                                {/* Quantity value */}
+                                {showQuantityControls ? (
+                                    <div className="flex items-center gap-2 border-2 border-[#bcbdc3] rounded overflow-hidden">
+                                        <button
+                                            onClick={() => handleCartDecrease(item)}
+                                            className="border-r-2 border-[#868A97] px-2 py-1 bg-white text-black hover:bg-[#c0747e]/40 transition">
+                                            -
+                                        </button>
+
+                                        {/* Quantity */}
+                                        <span className="text-md font-medium px-1 text-center">{item.quantity}</span>
+
+                                        <button
+                                            onClick={() => addToCart(item)}
+                                            className="border-l-2 border-[#868A97] px-2 py-1 bg-white text-black hover:bg-[#6fad91]/40 transition">
+                                            +
+                                        </button>
+                                    </div>
+                                ) : (
+                                     // Just show the quantity number
+                                    <span>{item.quantity}</span>
+                                )}
+
+                                {/* Total value*/}
+                                <span className="text-md font-medium">${(item.price * item.quantity).toFixed(2)}</span>
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <div className="text-center text-[#da2a79] text-2xl font-ysabeau font-medium">Your Cart is Currently Empty.</div>
+                )}
+            </div>
+
 
             {/* Use short-circuiting to show the total at the bottom, if the cart has items */}
             {cartItems.length > 0 && (

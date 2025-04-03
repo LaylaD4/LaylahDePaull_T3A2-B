@@ -24,8 +24,10 @@ test("shows empty cart message when cart is empty", () => {
     </CartContext.Provider>
   );
 
-  // Check that the empty cart message is shown
-  expect(screen.getByText("Your Cart is Currently Empty.")).toBeInTheDocument();
+
+  // Check that the empty cart message is shown (in both desktop & mobile views)
+  const messages = screen.getAllByText("Your Cart is Currently Empty.");
+  expect(messages.length).toBeGreaterThanOrEqual(1);
 });
 
 // UNIT TEST 2: renders CartPage with 1 item in the cart, & shows the title, subtotal, & the checkout button
@@ -40,8 +42,9 @@ test("shows item in cart, subtotal & checkout button", () => {
     </CartContext.Provider>
   );
 
-  // Check that the product title is displayed
-  expect(screen.getByText("Rainbow Flower Kit")).toBeInTheDocument();
+  // Check that the product title is displayed (in both desktop & mobile views)
+  const titles = screen.getAllByText("Rainbow Flower Kit");
+  expect(titles.length).toBeGreaterThanOrEqual(1);
 
   // Check that the cart subtotal is correct
   expect(screen.getByTestId("cart-subtotal")).toHaveTextContent("$109.95");
