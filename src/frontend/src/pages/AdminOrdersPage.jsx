@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import Banner from "../components/Banner";
 import CopyFooter from "../components/CopyFooter";
 import OrderTable from "../components/OrderTable";
+import { showCartToast } from "../utils/toastUtils";
 
 
 export default function AdminOrdersPage() {
@@ -74,6 +75,10 @@ export default function AdminOrdersPage() {
     const handleLogout = () => {
         // Remove jwt from local storage
         localStorage.removeItem("adminToken");
+
+        // Toastify message on successful logout
+        showCartToast("Logout successful!", "logout");
+
         // Redirect user back to login page (when Logout button clicked)
         navigate("/login");
     }

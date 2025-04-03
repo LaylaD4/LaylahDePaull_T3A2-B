@@ -8,6 +8,10 @@ export const showCartToast = (message, type) => {
         backgroundColour = "#e57373";
     } else if (type === "success") {
         backgroundColour = "#5ac3b5";
+    } else if (type === "login") {
+        backgroundColour = "#66ab83"
+    } else if (type === "logout") {
+        backgroundColour = "#b8b61d"
     }
 
     toast(message, {
@@ -15,6 +19,7 @@ export const showCartToast = (message, type) => {
             background: backgroundColour,
             color: "#ffffff",
             fontFamily: "'Ysabeau Office', sans-serif",
+            fontWeight: "bold",
             padding: "8px 12px",
             fontSize: "18px",
             borderRadius: "4px",

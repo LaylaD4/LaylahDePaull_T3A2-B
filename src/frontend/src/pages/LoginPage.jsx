@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Banner from "../components/Banner";
 import CopyFooter from "../components/CopyFooter";
+import { showCartToast } from "../utils/toastUtils";
 
 
 // LoginPage allows an admin to create (register) an admin account (limit of 2 accounts only, enforced by backend)
@@ -46,6 +47,10 @@ export default function LoginPage() {
             if (!isRegistering) {
                 // If login; store jwt (already a string) generated after login in local storage
                 localStorage.setItem("adminToken", data.token);
+
+                // Toastify message on successful login
+                showCartToast("Login successful!", "login");
+
                 // Navigate to admin order dashboard
                 navigate("/admin/orders")
             } else {
