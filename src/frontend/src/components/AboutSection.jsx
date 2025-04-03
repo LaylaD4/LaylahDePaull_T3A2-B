@@ -7,7 +7,7 @@ export default function AboutSection() {
         <div className="w-full flex justify-center items-center border-t-2 border-[#868A97] px-4">
             
             {/* Content wrapper for both the image and the text sections, stacks left & right sides when on mobile screen, and side by side on tablet & desktops screens */}
-            <div className="max-w-6xl w-full flex flex-col md:flex-row items-stretch gap-0">
+            <div className="max-w-7xl w-full flex flex-col md:flex-row items-stretch gap-0">
 
                 {/* Left Side - image container section */}
                 <div className="w-full md:w-1/2 flex flex-col bg-[#FFDEC4]/60 justify-center items-center text-center p-6 md:p-12">

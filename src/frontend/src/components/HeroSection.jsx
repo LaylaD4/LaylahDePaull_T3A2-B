@@ -6,7 +6,7 @@ export default function HeroSection() {
         <div className="w-full flex justify-center items-center border-t-2 border-[#868A97] px-4">
 
             {/* Wrapper that limits max width of content, and stacks image and text containers vertically when on mobile screen, and left & right on tablet and desktop screens */}
-            <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-0">
+            <div className="max-w-7xl w-full flex flex-col md:flex-row items-center gap-0">
 
                 {/* Left side: image container takes full width on mobile, half width on larger screens, height adjusts for consistent layout across all screen sizes */}
                 <div className="w-full md:w-1/2 h-[500px] md:h-[700px] lg:h-[800px] flex-shrink-0">

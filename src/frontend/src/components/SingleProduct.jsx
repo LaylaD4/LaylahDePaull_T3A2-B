@@ -4,7 +4,7 @@ import AddToCartButton from "./AddToCartButton";
 export default function SingleProduct({ product, bgColour }) {
     return (
         // Main container with responsive layout, image on the left & description on the right for tablet/desktop, stacked vertically on mobile, with background colour (specific to the product) is passed in as a prop.
-        <div className={`max-w-6xl mx-auto p-6 flex flex-col md:flex-row items-stretch min-h-[500px] ${bgColour}`}>
+        <div className={`max-w-7xl mx-auto p-6 flex flex-col md:flex-row items-stretch min-h-[500px] ${bgColour}`}>
 
             {/* Left Side – Product image section */}
             <div className="flex-1 flex justify-center items-center p-6">
