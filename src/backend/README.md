@@ -39,7 +39,7 @@ src/
 ├── index.js             # Entry point of the backend that starts the server and connects to MongoDB using environment variables in .env.
 ├── server.js            # Configures the Express app: sets up middleware for JSON parsing, serves static files, and registers all route files.
 ├── .env                 # Stores sensitive configuration values (PORT, DATABASE_URL, JWT_SECRET) used throughout the backend.
-├── package.json         # Lists project dependencies, scripts (like `start`, `seed`, `test`), and other metadata .
+├── package.json         # Lists project dependencies, scripts (like `start`, `seed`, `test`), and other metadata.
 ├── README.md            # This backend-specific documentation (you are currently reading).
 
 ```
@@ -126,13 +126,22 @@ JWT_SECRET=your_secret_key
 - Allow connections from your own IP address or `0.0.0.0/0` 
 - Copy your connection string and paste it as the value for your `DATABASE_URL` in your `.env` file.
 
-#### 3. Deploy Backend remotely to Render:
+#### 3. Seed the Remote Database in Render
+First the MongoDB Atlas database needs to be seeded with the initial product & video data using the `utils/seeding.js` script.
 
 - Sign up on: https://render.com 
 - Connect your Github Repository
-- Add your `.env` variables in the Render dashboard
+- Add your `.env` variables (eg; DATABASE_URL,JWT_SECRET)
 - Set Build command: `npm install`
-- Set Start command: `npm start`
+- Set Start command: `npm run seed` (Initially needed, to seed the database with products/videos)
+- Click **Create Web Service** to deploy
+
+#### 4. Deploy Backend remotely to Render
+Once seeding is complete, change the setup so your backend runs normally by updating the start command.
+
+- Go to your service’s **Settings** tab on Render
+- Change the Start Command back to: `npm start`
+- Then go to the Deploys tab, & click **Manual Deploy** > **Deploy latest commit**
 
 ---
 
@@ -155,8 +164,9 @@ JWT_SECRET=your_secret_key
   - GET /api/orders/:orderId – Get a single order by ID (admin only)
   - PATCH /api/orders/:id/status – Toggle order status (Unfulfilled/fulfilled) (admin only)
 
+---
 
-## Testing
+## Development Testing
 
 This project includes both **automated tests** (unit & integration in `backend/src/tests`), and **manual testing** using Insomnia.
 
@@ -211,7 +221,7 @@ Right-click and “Copy path”, then paste it into your browser to view.
 
 ### Manual Testing in Insomnia
 
-#### 1. Development Testing Screenshots (local)
+#### 1. Insomnia Testing Screenshots
 
 - **Product Routes**
   
@@ -310,15 +320,5 @@ Right-click and “Copy path”, then paste it into your browser to view.
   ![Change An Orders Status With No Token In Header - Admin](./docs/updateOrderStatus-no-token.png)
 
   ---
-
-#### 2. Production Testing Screenshots (Render) 
-
-- **Product Routes**
-
-- **Video Routes**
-
-- **Auth Routes**
-
-- **Order Routes**
 
 ---
