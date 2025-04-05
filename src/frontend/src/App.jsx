@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import HomeLayout from './layouts/HomeLayout';
+import HomePage from './pages/HomePage';
+import ShopPage from './pages/ShopPage';
+import ProductPage from './pages/ProductPage';
+import AboutPage from './pages/AboutPage';
+import TutorialsPage from './pages/TutorialsPage';
+import CartPage from './pages/CartPage';
+import CartProvider from './context/CartContext';
+import CheckoutPage from './pages/CheckoutPage';
+import OrderSuccessPage from './pages/OrderSuccessPage';
+import LoginPage from './pages/LoginPage';
+import AdminOrdersPage from './pages/AdminOrdersPage';
+import AdminOrderDetailsPage from "./pages/AdminOrderDetailsPage";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <CartProvider>
+      <Router>
+        {/* For notifications to shown anywhere in app */}
+        <ToastContainer />
+        <Routes>
+          {/* Wrap pages with HomeLayout which includes the Header & Footer */}
+          <Route path="/" element={<HomeLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/shop" element={<ShopPage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/tutorials" element={<TutorialsPage />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Route>
+          {/* NOT wrapped with HomeLayout */}
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/success" element={<OrderSuccessPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/admin/orders" element={<AdminOrdersPage />} />
+          <Route path="/admin/orders/:orderId" element={<AdminOrderDetailsPage />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   )
 }
 
