@@ -10,8 +10,17 @@ const authRoutes = require("./routes/authRoutes")
 // Middleware to parse json
 app.use(express.json());
 
+// Allow frontend URLs to access backend routes for local dev & deployed Netlify site
+const corsOptions = {
+    origin: [
+      "http://localhost:5173",
+      "https://leannescollection.netlify.app" 
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  };
+
 // Need cors to allow requests from the frontend
-app.use(cors());
+app.use(cors(corsOptions));
 
 
 // Access static images from the public folder for seeding
