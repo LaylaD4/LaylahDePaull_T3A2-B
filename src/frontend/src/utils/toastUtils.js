@@ -12,6 +12,10 @@ export const showCartToast = (message, type) => {
         backgroundColour = "#66ab83"
     } else if (type === "logout") {
         backgroundColour = "#b8b61d"
+    } else if (type === "emailSuccess") {
+        backgroundColour = "#7396b8";
+    } else if (type === "emailError") {
+        backgroundColour = "#d57b7b"; 
     }
 
     toast(message, {
