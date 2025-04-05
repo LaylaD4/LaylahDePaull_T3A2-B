@@ -19,12 +19,12 @@ export default function VideoEmbed({ videoURL, bgColour }) {
         <div className="w-full flex justify-center items-center p-6 bg-[#FFFFFF] mt-10 mb-10">
             
            {/* Video container with coloured background (bgColour prop passed) */}
-            <div className={`w-4/5 max-w-md ${bgColour} p-6 shadow-md flex flex-col items-center`}> 
-                <div className="w-full max-w-md flex justify-center ">
+            <div className={`w-full max-w-md ${bgColour} p-6 shadow-md flex flex-col items-center`}> 
+                <div className="w-full aspect-video">
                     <iframe
                         src={getEmbedURL(videoURL)}
                         title="Product Tutorial"
-                        className="w-full h-[140px] md:h-[220px] object-contain"
+                        className="w-full h-full"
                         allowFullScreen
                     />
                 </div>

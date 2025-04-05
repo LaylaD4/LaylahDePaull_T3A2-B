@@ -14,15 +14,17 @@ export default function VideoCard({ video, bgColour }) {
         <div className="w-full max-w-[280px] flex flex-col items-center">
 
             {/* Video section, uses the background colour passed as a prop */}
-            <div className={`${bgColour} w-full h-full flex items-center justify-center shadow-md overflow-hidden`}>
+            <div className={`${bgColour} w-full h-full flex items-center justify-center shadow-md p-6`}>
+            <div className="w-full aspect-video">
                 <iframe
                     // Use the converted embed link for the YouTube video
                     src={getEmbedURL(video.videoURL)}
                     title={video.title}
-                    className="w-[80%] h-auto max-h-[75%] object-contain"
+                    className="w-full h-full"
                     // Allows the user to view video in full screen
                     allowFullScreen
                 />
+                </div>
             </div>
 
             {/* Text Section, shows the video title below the video */}
