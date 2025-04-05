@@ -10,11 +10,11 @@ export default function VideoCard({ video, bgColour }) {
     }
 
     return (
-        // Main container limits max-width of card to 280px, & vertically stacks content
-        <div className="w-full max-w-[280px] flex flex-col items-center">
+        // Main container limits max-width of card to sm & vertically stacks content
+        <div className="w-full max-w-xs flex flex-col items-center">
 
             {/* Video section, uses the background colour passed as a prop */}
-            <div className={`${bgColour} w-full h-full flex items-center justify-center shadow-md p-6`}>
+            <div className={`${bgColour} w-full h-full flex items-center justify-center shadow-md p-5`}>
             <div className="w-full aspect-video">
                 <iframe
                     // Use the converted embed link for the YouTube video

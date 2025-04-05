@@ -38,7 +38,7 @@ export default function VideoList({ limit = null, gridCols }) {
         <div className={`max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-1 ${gridCols} lg:grid-cols-3 gap-8 p-4 place-items-center m-4`}>
              {/* Loop through videos to show a VideoCard for each one, and assign the videos background colour based on its index */}
             {videos.map((video, index) => (
-                <div key={video._id} className="w-full sm:w-[80%] md:w-[70%] lg:w-[80%] flex justify-center">
+                <div key={video._id} className="w-full max-w-sm flex justify-center">
                     <VideoCard video={video} bgColour={backgroundColours[index]} />
                 </div>
             ))}
