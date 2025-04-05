@@ -123,7 +123,7 @@ tailwind.config.js       # Tailwind setup and custom font settings
 
 ## Getting Leanne's Collection App Started
 
-You can run the frontend **locally** or deploy it **remotely** using **Netlifyr**.
+You can run the frontend **locally** or deploy it **remotely** using **Netlify**.
 
 ---
 
@@ -255,13 +255,17 @@ Right-click and “Copy path”, then paste it into your browser to view.
 
 ## Client Testing – Live Production Site  
 
-This project was tested by the client Leanne from Leanne's Collection (Seller). The site was deployed on Netlify and shared with the client using the live production link. I contacted the client regarding doing some live testing, and the client shared her thoughts after doing that live testing of the site over email.
+This project was tested by the client, Leanne from Leanne’s Collection (the seller). The site was deployed to Netlify and shared with her using the live production link. I asked Leanne to do some live testing, and she shared her feedback and screenshots with me by email after trying out the site.
 
 ### Screenshot of email communication to the client
 ![Email To Client](./docs/email-to-client.png)
 
+---
+
 ### Screenshot of email communication from the client
 ![Email From Client](./docs/email-from-client.png)
+
+---
 
 ### Client Testing Screenshots (mobile view)
 
