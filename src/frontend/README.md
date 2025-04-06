@@ -88,9 +88,9 @@ tailwind.config.js       # Tailwind setup and custom font settings
 - **EmailJS**: To send messages directly from the contact form on the About Page
 - **React Testing Library & Vitest**: Used together for unit and integration testing
 - **Vite**: For running the app locally and building it
-- **Netlify**: For deploying and hosting the frontend
+- **Netlify**: For deploying and hosting the frontend. A netlify.toml file was included to prevent page refresh errors.
 - **Heroicons & Font Awesome**: For all the icons like the cart, menu, and socials
-- **Favicon.io**: Created using the Leanne’s Collection logo
+- **Favicon.io**: Used to create the Leanne’s Collection logo favicon
 - **Figma**: Used to design the layout and wireframes before building
 
 ---
@@ -255,7 +255,7 @@ Right-click and “Copy path”, then paste it into your browser to view.
 
 ## Client Testing – Live Production Site  
 
-This project was tested by the client, Leanne from Leanne’s Collection (the seller). The site was deployed to Netlify and shared with her using the live production link. I asked Leanne to do some live testing, and she shared her feedback and screenshots with me by email after trying out the site.
+This project was tested by the client, Leanne from Leanne’s Collection (the seller). The site was deployed to Netlify and shared with her via the live production link. I asked Leanne to complete some live testing, and she provided feedback and mobile screenshots by email after exploring the site.
 
 ### Screenshot of email communication to the client
 ![Email To Client](./docs/email-to-client.png)
@@ -275,60 +275,138 @@ This project was tested by the client, Leanne from Leanne’s Collection (the se
 
 ![Client Screenshot 2nd](./docs/mobile-screenshots-2.png)
 
-## Leanne's Collection Application Screenshots (Live Production Site - Desktop)
+## Leanne's Collection Application Screenshots - Live Production Site Testing
 
-### HomePage  
+### Desktop View
+
+#### HomePage  
 ![Home Page](./docs/homepage.png)
 
 ---
 
-### ShopPage  
+#### ShopPage  
 ![Shop Page](./docs/shop-page.png)
 
 ---
 
-### ProductPage  
+#### ProductPage  
 ![Product Page](./docs/product-page.png)
 
 ---
 
-### CartPage  
+#### CartPage  
 ![Cart Page](./docs/cart-page.png)
 
 ---
 
-### CheckoutPage  
+#### CheckoutPage  
 ![Checkout Page](./docs/checkout-page.png)
 
 ---
 
-### OrderSuccessPage  
+#### OrderSuccessPage  
 ![Order Success Page](./docs/order-success.png)
 
 ---
 
-### LoginPage (Reister/Login)  
+#### LoginPage (Reister/Login)  
 ![Admin Orders Page](./docs/login-page.png)
 
 ---
 
-### AdminOrdersPage  
+#### AdminOrdersPage  
 ![Admin Orders Page](./docs/admin-orders.png)
 
 ---
 
-### AdminOrdersDetailsPage  
+#### AdminOrdersDetailsPage  
 ![Admin Order Details Page](./docs/admin-order-details.png)
 
 ---
 
-### TutorialsPage  
+#### TutorialsPage  
 ![Video Tutorials page](./docs/tutorials-page.png)
 
 ---
 
-### AboutPage  
-![About Page](./docs/about-page.png)
+#### AboutPage  
+![About Page](./docs/about-page.png)  
+
+---  
+
+### Tablet View 
+
+#### HomePage  
+![Home Page](./docs/homepage-tablet.png)
+
+---
+
+#### ShopPage  
+![Shop Page](./docs/shop-page-tablet.png)
+
+---
+
+#### ProductPage  
+![Product Page](./docs/product-page-tablet.png)
+
+---
+
+#### CartPage  
+![Cart Page](./docs/cart-page-tablet.png)
+
+---
+
+#### CheckoutPage  
+![Checkout Page](./docs/checkout-page-tablet.png)
+
+---
+
+#### OrderSuccessPage  
+![Order Success Page](./docs/order-success-tablet.png)
+
+---
+
+#### LoginPage (Reister/Login)  
+![Admin Orders Page](./docs/login-page-tablet.png)
+
+---
+
+#### AdminOrdersPage  
+![Admin Orders Page](./docs/admin-orders-tablet.png)
+
+---
+
+#### AdminOrdersDetailsPage  
+![Admin Order Details Page](./docs/admin-order-details-tablet.png)
+
+---
+
+#### TutorialsPage  
+![Video Tutorials page](./docs/tutorials-page-tablet.png)
+
+---
+
+#### AboutPage  
+![About Page](./docs/about-page-tablet.png)
+
+---
+
+### Mobile View 
+
+#### Home, Home-Menu, Shop & Product Pages  
+![Home, Home-Menu, Shop & Product Pages](./docs/home-menu-shop-product.png)
+
+---
+
+#### Tutorials, About, Cart & Checkout Pages  
+![Tutorials, About, Cartp & Checkout Pages](./docs/tutorials-about-cart-checkout.png)
+
+---
+
+#### Order Success, Login, Admin Orders & Admin Order Details Pages  
+![Order Success, Login, Admin Orders & Admin Order Details Pages](./docs/ordersuccess-login-orders-orderdetails.png)
+
+---
 
 
 

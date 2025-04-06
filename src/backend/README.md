@@ -50,10 +50,13 @@ src/
 
 - **Node.js**: Backend runtime environment
 - **Express.js**: Server framework to handle API routes
-- **MongoDB Atlas**: for Cloud-hosted NoSQL database
+- **MongoDB Atlas**: for Cloud-hosted (AWS) NoSQL database
 - **Mongoose**: ODM for defining schemas and interacting with MongoDB
 - **JSON Web Token (JWT)** : For authentication and route protection
-- **Bcrypt** For password hashing
+- **Bcrypt**: For password hashing
+- **Cors**: Cross origin requests
+- **Dotenv**: For environment variables
+- **Render**: For deploying and hosting the backend
 - **Jest**: For Unit testing
 - **Supertest**: For Integration testing
 

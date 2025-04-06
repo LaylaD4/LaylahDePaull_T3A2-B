@@ -42,6 +42,16 @@ The core site functionality; including cart creation, checkout, and admin order 
 
 ---
 
+### Test Admin Login (Live Site)  
+To explore the admin functionality on the live website, please use the following test login credentials:  
+
+- **Email**: laylaAdmin@email.com  
+- **Password**: Qwerty1234&   
+
+This test admin account allows you to login, view orders, and test the admin features. Only two admin accounts can be registered, and both have already been created on the live site. If you would like to try registering, run the app locally or deploy your own version remotely. 
+
+---
+
 ## Quick Start - Run App Locally
 If you’d like to quickly launch this app locally for exploration and/or testing, follow the steps below. For full setup instructions, including both local and remote deployment and detailed testing information, please refer to the frontend and backend `README.md` files in their respective folders.
 
@@ -210,7 +220,7 @@ The backend README includes full details of automated testing using Jest for uni
   8. Testing: Jest, Supertest, Insomnia, Vitest, & React Testing Library  
   Testing will be conducted through both automated and manual methods. The backend will use Jest and Supertest to perform unit and integration tests, with code coverage reports generated to ensure a high level of testing being achieved. Insomnia will be used during development for manual testing of all backend API endpoints. The frontend will use React Testing Library and Vitest to carry out unit and integration testing. After deployment, the live production site will be user tested by both myself and the client, with feedback and screenshots collected as evidence.
 
-  ## R2. Dataflow Diagram
+## R2. Dataflow Diagram
 
 ### Dataflow Diagram (DFD) Legend
 
