@@ -16,7 +16,7 @@ The frontend of Leanne's Collection was built using React.js and styled with Tai
 - Add or remove items in an adjustable and dynamic shopping cart
 - Enter their shipping details during checkout (no payment is taken)
 - Be redirected to the Order Success page with a summary of their order
-- VWatch tutorial videos for each kit, displayed using YouTube embeds
+- Watch tutorial videos for each kit, displayed using YouTube embeds
 - See customly styled Toastify notifications for actions like adding/removing items, admin login/logout, and order success
 - Send an email directly to the seller via a contact form powered by EmailJS
 - If logged in as an admin, view all orders, update their status, or open single orders using protected routes (secured with JWT tokens)
