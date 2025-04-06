@@ -18,7 +18,7 @@ export default function HomePage() {
             <TextBanner text="Take A Look At Our Video Tutorials. Learn How To Use Each Kit, & Pick Up Some Handy Hints..." />
             <VideoList limit={3} gridCols="md:grid-cols-3" />
             <div className="flex justify-center mb-6">
-                <LinkButton to="/shop" text="View More" />
+                <LinkButton to="/tutorials" text="View More" />
             </div>
         </div>
     )
